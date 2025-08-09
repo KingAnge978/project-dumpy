@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Search</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                text-align: center;
+                margin-top: 50px;
+            }
+            .nav-links {
+                margin-bottom: 30px;
+            }
+            .nav-links a {
+                margin: 0 10px;
+                text-decoration: none;
+                color: #1a0dab;
+            }
+            .nav-links a:hover {
+                text-decoration: underline;
+            }
+            input[type="text"] {
+                width: 500px;
+                padding: 10px;
+                border-radius: 24px;
+                border: 1px solid #dfe1e5;
+                margin-bottom: 20px;
+            }
+            input[type="submit"] {
+                background-color: #f8f9fa;
+                border: 1px solid #f8f9fa;
+                border-radius: 4px;
+                padding: 8px 16px;
+                margin: 0 4px;
+            }
+            input[type="submit"]:hover {
+                border: 1px solid #dadce0;
+                box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="nav-links">
+            <a href="search.html">Google Search</a>
+            <a href="images.html">Google Image Search</a>
+            <a href="advanced.html">Google Advanced Search</a>
+        </div>
+        
+        <form action="https://google.com/search">
+            <input type="text" name="q" placeholder="Search Google">
+            <br>
+            <input type="submit" value="Google Search">
+        </form>
+    </body>
+</html>

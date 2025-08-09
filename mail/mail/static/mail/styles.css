@@ -1,0 +1,34 @@
+.email {
+  border: 1px solid #341c02;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.email.unread {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+.email.read {
+  background-color: #0075ff;
+}
+
+.email-sender {
+  width: 20%;
+}
+
+.email-subject {
+  width: 60%;
+}
+
+.email-timestamp {
+  width: 20%;
+  text-align: right;
+}
+
+#email-view div {
+  margin-bottom: 10px;
+}

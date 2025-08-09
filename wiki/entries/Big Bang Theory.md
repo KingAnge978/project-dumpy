@@ -1,0 +1,1 @@
+The Big Bang Theory is a Theory of the Universe. In Basic terms, a black hole exploded and a bunch of stars gained gravitational pull, becoming suns. Big enough asteroids became planets, and solar systems were formed.

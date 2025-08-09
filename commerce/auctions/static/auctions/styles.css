@@ -1,0 +1,45 @@
+body {
+    padding: 20px;
+}
+
+.listing {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.listing-image {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+.comment {
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #18e30d;
+    color: #ff8300;
+}
+
+.alert-warning {
+    background-color: #144bc5;
+    color: #2aa68e;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    color: #a94442;
+}

@@ -1,0 +1,1 @@
+The Atari is an antique video game console company that was created in 1972. The Name "Atari" was chosen from a Japanese term used in the game of Go, and the company was incorporated in the State of California on June 27, 1972.

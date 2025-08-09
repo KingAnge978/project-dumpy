@@ -1,0 +1,11 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Delete Category</h2>
+    <p>Are you sure you want to delete "{{ category.name }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'categories' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+{% endblock %}

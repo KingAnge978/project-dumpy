@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'whiteboard/whiteboard.css' %}">
+
+<canvas id="whiteboard-canvas"></canvas>
+
+<div class="controls">
+    <div class="control-group">
+        <span>Colors:</span>
+        <div class="color-picker">
+            <button class="color-btn black active" data-color="#000000"></button>
+            <button class="color-btn red" data-color="#FF0000"></button>
+            <button class="color-btn blue" data-color="#0000FF"></button>
+            <button class="color-btn green" data-color="#00FF00"></button>
+            <button class="color-btn yellow" data-color="#FFFF00"></button>
+            <button class="color-btn white" data-color="#FFFFFF"></button>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <span>Brush:</span>
+        <div class="brush-picker">
+            <button class="brush-btn active" data-size="2">2</button>
+            <button class="brush-btn" data-size="5">5</button>
+            <button class="brush-btn" data-size="10">10</button>
+            <button class="brush-btn" data-size="20">20</button>
+        </div>
+    </div>
+    
+    <div class="control-group">
+        <button id="clear-btn" class="action-btn">Clear</button>
+        <button id="save-btn" class="action-btn">Save</button>
+    </div>
+</div>
+
+<script src="{% static 'whiteboard/whiteboard.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    <div class="container mt-3">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h2 class="card-title">{{ profile_user.username }}</h2>
+                <div class="d-flex justify-content-between mb-3">
+                    <div>
+                        <strong>Followers:</strong> <span id="follower-count">{{ profile_user.followers.count }}</span>
+                    </div>
+                    <div>
+                        <strong>Following:</strong> {{ profile_user.following.count }}
+                    </div>
+                </div>
+                
+                {% if user.is_authenticated and user.username != profile_user.username %}
+                <button id="follow-btn" class="btn btn-primary" data-userid="{{ profile_user.id }}">
+                    {% if user in profile_user.followers.all %}Unfollow{% else %}Follow{% endif %}
+                </button>
+                {% endif %}
+            </div>
+        </div>
+
+        <h4>Posts</h4>
+        <div id="posts-view" class="container">
+        </div>
+        <div id="pagination" class="mt-3">
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function loadProfilePosts(username, page=1) {
+            fetch(`/profile_posts/${username}?page=${page}`)
+                .then(response => response.json())
+                .then(data => {
+                    const postsView = document.getElementById('posts-view');
+                    postsView.innerHTML = '';
+
+                    data.posts.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.className = 'card mb-3';
+                        postElement.innerHTML = `
+                            <div class="card-body">
+                                <h5 class="card-title">${post.username}</h5>
+                                <p class="card-text" id="post-content-${post.id}">${post.content}</p>
+                                <small class="text-muted">${post.timestamp}</small>
+                                <div class="mt-2">
+                                    <span class="like-count" id="like-count-${post.id}">${post.likes}</span> likes
+                                    {% if user.is_authenticated %}
+                                    <button class="btn btn-sm btn-outline-primary like-btn" data-postid="${post.id}">
+                                        ${post.liked ? 'Unlike' : 'Like'}
+                                    </button>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        `;
+                        postsView.appendChild(postElement);
+                    });
+
+                    renderPagination(data, username);
+                });
+        }
+
+        function renderPagination(data, username) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            if (data.total_pages > 1) {
+                const paginationList = document.createElement('ul');
+                paginationList.className = 'pagination';
+
+                if (data.has_previous) {
+                    const prevItem = document.createElement('li');
+                    prevItem.className = 'page-item';
+                    prevItem.innerHTML = `<a class="page-link" href="#" data-page="${data.current_page - 1}">Previous</a>`;
+                    paginationList.appendChild(prevItem);
+                }
+
+                for (let i = 1; i <= data.total_pages; i++) {
+                    const pageItem = document.createElement('li');
+                    pageItem.className = `page-item ${i === data.current_page ? 'active' : ''}`;
+                    pageItem.innerHTML = `<a class="page-link" href="#" data-page="${i}">${i}</a>`;
+                    paginationList.appendChild(pageItem);
+                }
+
+                if (data.has_next) {
+                    const nextItem = document.createElement('li');
+                    nextItem.className = 'page-item';
+                    nextItem.innerHTML = `<a class="page-link" href="#" data-page="${data.current_page + 1}">Next</a>`;
+                    paginationList.appendChild(nextItem);
+                }
+                
+                pagination.appendChild(paginationList);
+
+                document.querySelectorAll('.page-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        loadProfilePosts(username, parseInt(link.dataset.page));
+                    });
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = '{{ profile_user.username }}';
+            loadProfilePosts(username);
+
+            const followBtn = document.getElementById('follow-btn');
+            if (followBtn) {
+                followBtn.addEventListener('click', followUser);
+            }
+        });
+    </script>
+{% endblock %}

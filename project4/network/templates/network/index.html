@@ -1,0 +1,30 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+    <div class="container mt-3">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">New Post</h5>
+                <textarea class="form-control mb-2" id="post-content" rows="3"></textarea>
+                <button id="post-submit" class="btn btn-primary">Post</button>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <div id="posts-view" class="container">
+        <!-- Posts will be loaded here by JavaScript -->
+    </div>
+
+    <nav aria-label="Page navigation" class="container mt-3">
+        <ul class="pagination justify-content-center" id="pagination">
+            <!-- Pagination will be loaded here by JavaScript -->
+        </ul>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'network/index.js' %}"></script>
+{% endblock %}

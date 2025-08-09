@@ -1,0 +1,14 @@
+DISTICNTIVENESS AND COMPLEXITY 
+
+I believe my project is distinct and complex because I brainstormed different ideas including a game engine, a recipe manager/planner, and others before i came up with a whiteboard app.
+Inside of my whieboard_project I used python, javascript, and css, to create and wire my project. The whiteboard supports mouse and touch screen storkes as my HP notebook is also touchscreen. 
+In the main directory besides this readme file, I use a virtual environment that needs to be activated to run the project (refer to requirements.txt), the whiteboard folder(app) contains all the inner workings of my project, the whiteboard project folder(configs.) contains the settings.py, asgi and wsgi, project-wide urls.py and pycache folder.
+Inside the whiteboard app we have the views file that complies all the aspects and general functions of the project, the admin file is empty because I didnt touch it. I don't really require a superuser for this project. The Models file is also empty and unused. The urls file handles the whiteboard uuid and rooms for user logins to make whiteboards quiet, as I have not properly made a login screen/function. I have made a consumers file that can allow the user to share a whiteboard with other users and allow them to edit and draw on the white board as well, I'll keep working on that. 
+Inside the /whiteboard_project/whiteboard/static/whiteboard directory is where the js and css files both named 'whiteboard' reside, css handling the styles, borders, how the buttons look, and the javascript has the executions of all the functions and buttons that you'll see when running the project. 
+From choosing the brush size, to changing the color, clearing the canvas, and saving the canvas to a png file. 
+Inside the whiteboard_project/whiteboard/templates directory has the base html file with the basic outline of what the whiteboard looks like, the 'registration' folder that contains the login html file that isnt properly implemented, and the whiteboard file containing the whiteboard html file that goes goes deeper into how everything is layed out in the app. 
+It will load references from the whiteboard css file to show each button where its intended, and allow you to click it. Whenever I make changes to my project I run 'python manage.py makemigrations + migrate' command even when it isn't nessesary so I have a migrations folder in my /whiteboard_project/whiteboard/ directory. 
+To run the app, I first use 'source myenv/bin/activate' to use my virtual enviroment and not globally because I use Arch Linux. Next I migrate everything as mentioned previously, and use 'python manage.py runserver' (you most likely already know this) cmd and open the link to the django development server.
+Thank you for your time and reading this file. 
+  
+
