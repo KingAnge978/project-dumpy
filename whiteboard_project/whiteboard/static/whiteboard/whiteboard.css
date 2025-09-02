@@ -80,6 +80,19 @@ body {
 
 #clear-btn { background-color: #f44336; }
 #save-btn { background-color: #2196F3; }
+#undo-btn { 
+    background-color: #FF9800; 
+    margin-right: 5px;
+}
+#eraser-btn {
+    background-color: #9E9E9E; 
+    margin-left: 5px;
+}
+
+#eraser-btn.active {
+    background-color: #616161;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
 
 @media (max-width: 768px) {
     .controls {
@@ -93,6 +106,10 @@ body {
         font-size: 10px;
     }
     .action-btn {
+        padding: 3px 6px;
+        font-size: 12px;
+    }
+      #eraser-btn, #undo-btn {
         padding: 3px 6px;
         font-size: 12px;
     }
