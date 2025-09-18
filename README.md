@@ -4,3 +4,4 @@ A place I put all of my code. Mostly Html, Java script, and Python with a pinch 
 This will serve as an archive for the shit I make, will be updated regularly
 08/14/2025 - I'm currently crashing out trying to make working undo btn and erase brush for whiteboard. XwX
 09/01/2025 - I HAVE DONE IT! Updates - 'Undo' Button added, undo the previous stroke. 'Erase' button added, erase brush with all off the thickness levels fully functional. HUZZAH
+09-17-25 - I had made an auto-update script for my discord client and wanted to put it on here lol (only for pacman based distros like Arch Linux) 
